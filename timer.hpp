@@ -1,5 +1,5 @@
-#ifndef TIMER_HPP_INCLUDED
-#define TIMER_HPP_INCLUDED
+#ifndef TIMER_HPP
+#define TIMER_HPP
 
 #include <chrono>
 
@@ -10,15 +10,31 @@ private:
     bool isRunning;
 
 public:
-    Timer();
+    Timer() : totalTime(0.0), isRunning(false) {}
 
-    void start();
+    void start() {
+        if (!isRunning) {
+            startTime = std::chrono::high_resolution_clock::now();
+            isRunning = true;
+        }
+    }
 
-    void stop();
+    void stop() {
+        if (isRunning) {
+            std::chrono::high_resolution_clock::time_point endTime = std::chrono::high_resolution_clock::now();
+            totalTime += std::chrono::duration_cast<std::chrono::duration<double>>(endTime - startTime);
+            isRunning = false;
+        }
+    }
 
-    void reset();
+    void reset() {
+        isRunning = false;
+        totalTime = std::chrono::duration<double>(0.0);
+    }
 
-    double getTotalTime() const;
+    double getTotalTime() const {
+        return totalTime.count();
+    }
 };
 
 #endif  // TIMER_HPP_INCLUDED
