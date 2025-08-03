@@ -32,7 +32,6 @@ The framework consists of several key components:
 ### Tensor Operations
 - **Field Element Tensors** (`fr-tensor.cu`): Operations on finite field elements
 - **Group Element Tensors** (`g1-tensor.cu`): Elliptic curve point operations
-- **I/O Utilities** (`ioutils.cu`): Efficient data loading and serialization
 
 ## 📋 Requirements
 
@@ -45,10 +44,6 @@ The framework consists of several key components:
 - GCC 7.3+ or compatible C++ compiler
 - Python 3.8+
 
-### Python Dependencies
-```bash
-pip install numpy torch transformers
-```
 
 ## 📖 Documentation
 
