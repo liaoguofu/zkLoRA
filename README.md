@@ -38,7 +38,6 @@ The framework consists of several key components:
 ### Hardware
 - NVIDIA GPU with CUDA capability 7.0 or higher
 - GPU Memory: 80GB
-- Minimum 8GB GPU memory (16GB+ recommended for large models)
 
 ### Software
 - CUDA Toolkit 11.0+
